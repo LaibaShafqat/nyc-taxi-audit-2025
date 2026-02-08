@@ -9,7 +9,7 @@ from PIL import Image
 
 st.set_page_config(page_title="NYC Congestion Audit 2025", layout="wide")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-RESULTS_DIR = os.path.join(BASE_DIR, "results")
+RESULTS_DIR = BASE_DIR
 
 # --- CACHING FUNCTION (Prevents re-downloading map every time) ---
 @st.cache_data
@@ -192,4 +192,5 @@ with tab5:
         st.subheader("Top Suspicious Vendors")
         df_vendors = load_data("audit_suspicious_vendors.csv")
         if df_vendors is not None:
+
             st.dataframe(df_vendors, hide_index=True)
